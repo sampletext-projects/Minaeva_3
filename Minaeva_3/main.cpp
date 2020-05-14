@@ -2,22 +2,6 @@
 
 using namespace std;
 
-int count(int r)
-{
-	int a = 0;
-	for (int x = -r; x <= r; x++)
-	{
-		for (int y = -r; y <= r; y++)
-		{
-			if (x * x + y * y <= r * r)
-			{
-				a++;
-			}
-		}
-	}
-	return a;
-}
-
 int main()
 {
 	setlocale(LC_ALL, "russian");
@@ -31,7 +15,20 @@ int main()
 		cout << "Какой радиус проверить? ";
 		int r;
 		cin >> r;
-		cout << "Круг с радиусом " << r << " имеет " << count(r) << " целых точек\n";
+
+		int a = 0;
+		for (int x = -r; x <= r; x++)
+		{
+			for (int y = -r; y <= r; y++)
+			{
+				if (x * x + y * y <= r * r)
+				{
+					a++;
+				}
+			}
+		}
+		
+		cout << "Круг с радиусом " << r << " имеет " << a << " целых точек\n";
 		cout << "Повторить ввод(1): ";
 		cin >> k;
 	} while (k == 1);
